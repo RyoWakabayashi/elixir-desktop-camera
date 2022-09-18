@@ -25,23 +25,71 @@ defmodule TodoWeb.TodoLive do
   end
 
   def handle_event("take", %{"image" => base64}, socket) do
-    IO.inspect(base64)
-    "data:image/jpeg;base64," <> raw = base64
-    gray =
+    "data:image/bmp;base64," <> raw = base64
+    all =
       raw
       |> Base.decode64!()
-      |> StbImage.read_binary!()
-      |> StbImage.to_nx()
+      |> Nx.from_binary({:u, 8})
+
+    meta =
+      all
+      |> Nx.slice([0], [54])
       |> IO.inspect()
+
+    width =
+      meta
+      |> Nx.slice([18], [4])
+      |> IO.inspect()
+      |> Nx.to_flat_list()
+      |> Enum.with_index
+      |> Enum.reduce(0, fn({number, index}, acc) ->
+        acc + number * 256 ** index
+      end)
+      |> IO.inspect()
+
+    height =
+      meta
+      |> Nx.slice([22], [4])
+      |> IO.inspect()
+      |> Nx.to_flat_list()
+      |> Enum.with_index
+      |> Enum.reduce(1, fn({number, index}, acc) ->
+        acc + (255 - number) * 256 ** index
+      end)
+      |> IO.inspect()
+
+    rgba =
+      all
+      |> Nx.slice([54], [width * height * 4])
+      |> Nx.reshape({width, height, 4})
+
+    rgb =
+      rgba
+      |> Nx.slice([0, 0, 0], [width, height, 3])
+
+    a =
+      rgba
+      |> Nx.slice([0, 0, 3], [width, height, 1])
+
+    gray =
+      rgb
       |> Nx.mean(axes: [-1])
       |> Nx.round()
       |> Nx.tile([3, 1, 1])
       |> Nx.transpose(axes: [1, 2, 0])
       |> Nx.as_type({:u, 8})
-      |> IO.inspect()
-      |> StbImage.from_nx()
-      |> StbImage.to_binary(:jpg)
-    {:noreply, assign(socket, gray_image: gray)}
+
+    gray =
+      [gray, a]
+      |> Nx.concatenate(axis: -1)
+      |> Nx.flatten()
+
+    gray_all =
+      [meta, gray]
+      |> Nx.concatenate()
+      |> Nx.to_binary()
+
+    {:noreply, assign(socket, gray_image: gray_all)}
   end
 
   @impl true

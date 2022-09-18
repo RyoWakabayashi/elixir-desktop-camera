@@ -39,7 +39,7 @@ defmodule TodoApp do
           app: @app,
           id: TodoWindow,
           title: "TodoApp",
-          size: {600, 500},
+          size: {600, 750},
           icon: "icon.png",
           menubar: TodoApp.MenuBar,
           icon_menu: TodoApp.Menu,

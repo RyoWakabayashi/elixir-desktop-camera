@@ -33,10 +33,10 @@ Hooks.TakePicture = {
     this.el.addEventListener("click", event => {
       var canvas = document.getElementById("canvas");
       var video = document.getElementById("local-video");
-      canvas.width = 400;
-      canvas.height = 300;
-      canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
-      const picture = canvas.toDataURL("image/jpeg", 1.0)
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+      const picture = canvas.toDataURL("image/bmp", 1.0)
       this.pushEvent("take", {"image": picture})
     })
   }
