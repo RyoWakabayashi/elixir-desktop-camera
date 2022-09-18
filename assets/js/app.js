@@ -17,7 +17,6 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 async function initStream() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({audio: true, video: true, width: "1280"})
-    localStream = stream
     document.getElementById("local-video").srcObject = stream
   } catch (e) {
     console.log(e)
@@ -30,14 +29,29 @@ Hooks.TakePicture = {
   mounted() {
     initStream()
 
+    const video = document.getElementById("local-video");
+
+    const canvas = document.getElementById("canvas");
+    canvas.width = 400;
+    const context = canvas.getContext("2d");
+    const canvasGray = document.getElementById("canvas-gray");
+    canvasGray.width = 400;
+    const contextGray = canvasGray.getContext("2d");
+
     this.el.addEventListener("click", event => {
-      var canvas = document.getElementById("canvas");
-      var video = document.getElementById("local-video");
-      canvas.width = 400;
-      canvas.height = 300;
-      canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
-      const picture = canvas.toDataURL("image/jpeg", 1.0)
-      this.pushEvent("take", {"image": picture})
+      const height = parseInt(400 * video.videoHeight / video.videoWidth);
+      canvas.height = height;
+      canvasGray.height = height;
+      canvas.getContext('2d').drawImage(video, 0, 0, 400, height);
+      const pixel = context.getImageData(0, 0, 400, height)
+      this.pushEvent("take", pixel, (payload) => {
+        let imageData = new ImageData(
+          new Uint8ClampedArray(payload.image),
+          400,
+          height
+        );
+        contextGray.putImageData(imageData, 0, 0);
+      })
     })
   }
 }

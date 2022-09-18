@@ -24,24 +24,36 @@ defmodule TodoWeb.TodoLive do
     {:noreply, assign(socket, todos: todos)}
   end
 
-  def handle_event("take", %{"image" => base64}, socket) do
-    IO.inspect(base64)
-    "data:image/jpeg;base64," <> raw = base64
-    gray =
+  def handle_event("take", %{"data" => raw}, socket) do
+    pixel =
       raw
-      |> Base.decode64!()
-      |> StbImage.read_binary!()
-      |> StbImage.to_nx()
-      |> IO.inspect()
-      |> Nx.mean(axes: [-1])
-      |> Nx.round()
-      |> Nx.tile([3, 1, 1])
-      |> Nx.transpose(axes: [1, 2, 0])
-      |> Nx.as_type({:u, 8})
-      |> IO.inspect()
-      |> StbImage.from_nx()
-      |> StbImage.to_binary(:jpg)
-    {:noreply, assign(socket, gray_image: gray)}
+      |> Map.to_list()
+      |> Enum.map(fn {k, v} -> {String.to_integer(k), v} end)
+      |> Enum.sort()
+      |> Enum.map(fn {_k, v} -> v end)
+      |> Nx.tensor()
+
+    {row} = Nx.shape(pixel)
+    pixel =
+      pixel
+      |> Nx.reshape({div(row, 4), 4})
+
+    gray =
+      pixel
+        |> Nx.mean(axes: [-1])
+        |> Nx.round()
+        |> Nx.as_type({:u, 8})
+        |> Nx.to_flat_list()
+        |> Enum.map(fn avg -> [avg, avg, avg] end)
+        |> Nx.tensor()
+
+      a = Nx.slice_along_axis(pixel, 4, 1, axis: -1)
+
+      gray =
+        Nx.concatenate([gray, a], axis: -1)
+        |> Nx.to_flat_list()
+
+    {:reply, %{image: gray}, socket}
   end
 
   @impl true
