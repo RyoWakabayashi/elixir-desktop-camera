@@ -75,7 +75,10 @@ defmodule Todo.MixProject do
       {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
 
       # Credo
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+
+      {:stb_image, "~> 0.5.2"},
+      {:nx, "~> 0.3"}
     ]
   end
 end

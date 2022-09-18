@@ -4,19 +4,44 @@ defmodule TodoWeb.TodoLive do
     todo items
   """
   use TodoWeb, :live_view
+  require Logger
 
   @impl true
 
   def mount(_args, _session, socket) do
     todos = TodoApp.Todo.all_todos()
     TodoApp.Todo.subscribe()
-    {:ok, assign(socket, todos: todos)}
+    socket =
+      socket
+      |> assign(:gray_image, nil)
+      |> assign(:todos, todos)
+    {:ok, socket}
   end
 
   @impl true
   def handle_info(:changed, socket) do
     todos = TodoApp.Todo.all_todos()
     {:noreply, assign(socket, todos: todos)}
+  end
+
+  def handle_event("take", %{"image" => base64}, socket) do
+    IO.inspect(base64)
+    "data:image/jpeg;base64," <> raw = base64
+    gray =
+      raw
+      |> Base.decode64!()
+      |> StbImage.read_binary!()
+      |> StbImage.to_nx()
+      |> IO.inspect()
+      |> Nx.mean(axes: [-1])
+      |> Nx.round()
+      |> Nx.tile([3, 1, 1])
+      |> Nx.transpose(axes: [1, 2, 0])
+      |> Nx.as_type({:u, 8})
+      |> IO.inspect()
+      |> StbImage.from_nx()
+      |> StbImage.to_binary(:jpg)
+    {:noreply, assign(socket, gray_image: gray)}
   end
 
   @impl true
