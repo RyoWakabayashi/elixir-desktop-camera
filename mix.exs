@@ -55,7 +55,7 @@ defmodule Todo.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [
+    desktop = [
       {:ecto_sqlite3, "~> 0.8"},
       {:exqlite, github: "elixir-desktop/exqlite", override: true},
       # {:desktop, path: "../desktop"},
@@ -79,5 +79,11 @@ defmodule Todo.MixProject do
 
       {:evision, "~> 0.1.8"}
     ]
+
+    if Mix.target() in [:android, :ios] do
+      desktop ++ [{:wx, "~> 1.0", hex: :bridge, targets: [:android, :ios]}]
+    else
+      desktop
+    end
   end
 end
