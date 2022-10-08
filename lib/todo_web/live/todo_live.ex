@@ -30,17 +30,10 @@ defmodule TodoWeb.TodoLive do
     gray =
       raw
       |> Base.decode64!()
-      |> StbImage.read_binary!()
-      |> StbImage.to_nx()
-      |> IO.inspect()
-      |> Nx.mean(axes: [-1])
-      |> Nx.round()
-      |> Nx.tile([3, 1, 1])
-      |> Nx.transpose(axes: [1, 2, 0])
-      |> Nx.as_type({:u, 8})
-      |> IO.inspect()
-      |> StbImage.from_nx()
-      |> StbImage.to_binary(:jpg)
+      |> Evision.imdecode!(Evision.cv_IMREAD_GRAYSCALE)
+
+    gray =
+      Evision.imencode!(".jpg", gray)
     {:noreply, assign(socket, gray_image: gray)}
   end
 
