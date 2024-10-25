@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B47D077A334A3BD9373DA27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA294B0AFEC8F4A9DFFD0D3B /* Preview Assets.xcassets */; };
+		52631BD61E6E0E70A3838A44 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E86F95B2DA0A2D166788D3 /* WebView.swift */; };
+		55DB59204ACE6E88B1FA77CF /* liberlang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EB713189272DD32B9AB012 /* liberlang.xcframework */; };
+		5F80E749903D9492E0EEA8DF /* ElixirDesktopCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3872637C5941B89EBB751CD /* ElixirDesktopCamera.swift */; };
+		6F218127FCB4F3019DE5AA2C /* native-lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5249A085D0DDF5276ED920B8 /* native-lib.cpp */; };
+		779F187D3B3FAA4CCEB25BDA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13AEE644905B454369568 /* Bridge.swift */; };
+		7E29840DD91F53F8CE5EC6E1 /* app.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7300C512DA5BDBDEF62DCE62 /* app.zip */; };
+		A5DDB98DE43E9BC3D20128B5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90BE0E2C73B733C46F717 /* WebViewController.swift */; };
+		AC889DCEACBA20856F5251A0 /* ZIPFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAB8A1AD1CD209B805B9C9E /* ZIPFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2430527B523F31C2F4772DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBD47EC5940396290670365 /* Assets.xcassets */; };
+		C9A62552C69E8ACAC5642733 /* ZIPFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAB8A1AD1CD209B805B9C9E /* ZIPFoundation.xcframework */; };
+		D665F764A4E651502458EB48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A895AC11BD22C46D824716 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6A3A3928EB9B2D48104DAD0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC889DCEACBA20856F5251A0 /* ZIPFoundation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		143F3C722CCB4537006F0C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		335E6FA0E0CD18DFB364FB34 /* ElixirDesktopCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElixirDesktopCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37EB713189272DD32B9AB012 /* liberlang.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = liberlang.xcframework; sourceTree = "<group>"; };
+		4DB14FF67B60AAE559627507 /* example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "example-Bridging-Header.h"; sourceTree = "<group>"; };
+		5249A085D0DDF5276ED920B8 /* native-lib.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "native-lib.cpp"; sourceTree = "<group>"; };
+		69A895AC11BD22C46D824716 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7300C512DA5BDBDEF62DCE62 /* app.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = app.zip; sourceTree = "<group>"; };
+		76D13AEE644905B454369568 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		7BAB8A1AD1CD209B805B9C9E /* ZIPFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZIPFoundation.xcframework; path = Carthage/Build/ZIPFoundation.xcframework; sourceTree = "<group>"; };
+		9DC90BE0E2C73B733C46F717 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		A3872637C5941B89EBB751CD /* ElixirDesktopCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElixirDesktopCamera.swift; sourceTree = "<group>"; };
+		BDBD47EC5940396290670365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9289BB04B98274C2804DF7B /* native-lib.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "native-lib.hpp"; sourceTree = "<group>"; };
+		F9E86F95B2DA0A2D166788D3 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FA294B0AFEC8F4A9DFFD0D3B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00B0043CF51B5FE12891D65F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9A62552C69E8ACAC5642733 /* ZIPFoundation.xcframework in Frameworks */,
+				55DB59204ACE6E88B1FA77CF /* liberlang.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D6451EB991DBD4AD388AB4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37EB713189272DD32B9AB012 /* liberlang.xcframework */,
+				7BAB8A1AD1CD209B805B9C9E /* ZIPFoundation.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DB07FFEDC20766CAF0D9238 = {
+			isa = PBXGroup;
+			children = (
+				D7D3CAE6CA459248767478EC /* ElixirDesktopCamera */,
+				4DB14FF67B60AAE559627507 /* example-Bridging-Header.h */,
+				5249A085D0DDF5276ED920B8 /* native-lib.cpp */,
+				F9289BB04B98274C2804DF7B /* native-lib.hpp */,
+				0D6451EB991DBD4AD388AB4B /* Frameworks */,
+				B7A1EA9BFA3FFE1612FA3FB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7A1EA9BFA3FFE1612FA3FB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				335E6FA0E0CD18DFB364FB34 /* ElixirDesktopCamera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF57FA8703ED00C5E1A3B6A2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FA294B0AFEC8F4A9DFFD0D3B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D7D3CAE6CA459248767478EC /* ElixirDesktopCamera */ = {
+			isa = PBXGroup;
+			children = (
+				143F3C722CCB4537006F0C39 /* Info.plist */,
+				CF57FA8703ED00C5E1A3B6A2 /* Preview Content */,
+				7300C512DA5BDBDEF62DCE62 /* app.zip */,
+				BDBD47EC5940396290670365 /* Assets.xcassets */,
+				76D13AEE644905B454369568 /* Bridge.swift */,
+				69A895AC11BD22C46D824716 /* ContentView.swift */,
+				A3872637C5941B89EBB751CD /* ElixirDesktopCamera.swift */,
+				F9E86F95B2DA0A2D166788D3 /* WebView.swift */,
+				9DC90BE0E2C73B733C46F717 /* WebViewController.swift */,
+			);
+			path = ElixirDesktopCamera;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2063428AD1F6CDF3995FC49 /* ElixirDesktopCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24C6527B6F280AE6840C5E0 /* Build configuration list for PBXNativeTarget "ElixirDesktopCamera" */;
+			buildPhases = (
+				A5FC5BB0E11E0C4FA82B106A /* Sources */,
+				67036827AA3DA0ECADC4A787 /* Resources */,
+				00B0043CF51B5FE12891D65F /* Frameworks */,
+				F6A3A3928EB9B2D48104DAD0 /* Embed Frameworks */,
+				92D2C0A04E87C090F620E114 /* build elixir */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ElixirDesktopCamera;
+			productName = ElixirDesktopCamera;
+			productReference = 335E6FA0E0CD18DFB364FB34 /* ElixirDesktopCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61A56C70A095CB80628342F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = 2EEBB53BDCDD4E1F9B2371EA /* Build configuration list for PBXProject "ElixirDesktopCamera" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6DB07FFEDC20766CAF0D9238;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2063428AD1F6CDF3995FC49 /* ElixirDesktopCamera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67036827AA3DA0ECADC4A787 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2430527B523F31C2F4772DD /* Assets.xcassets in Resources */,
+				3B47D077A334A3BD9373DA27 /* Preview Assets.xcassets in Resources */,
+				7E29840DD91F53F8CE5EC6E1 /* app.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92D2C0A04E87C090F620E114 /* build elixir */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "build elixir";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nset -e\n\n./run_mix";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5FC5BB0E11E0C4FA82B106A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				779F187D3B3FAA4CCEB25BDA /* Bridge.swift in Sources */,
+				D665F764A4E651502458EB48 /* ContentView.swift in Sources */,
+				5F80E749903D9492E0EEA8DF /* ElixirDesktopCamera.swift in Sources */,
+				52631BD61E6E0E70A3838A44 /* WebView.swift in Sources */,
+				A5DDB98DE43E9BC3D20128B5 /* WebViewController.swift in Sources */,
+				6F218127FCB4F3019DE5AA2C /* native-lib.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		33E47975B3292D17647E4B31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VRD54SM2W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+					"\"Carthage/Build\"",
+				);
+				INFOPLIST_FILE = ElixirDesktopCamera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "If you want to use the camera, you have to give permission.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "If you want to use the microphone, you have to give permission.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.example.ElixirDesktopCamera;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ElixirDesktopCamera;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5A64EB677A511C2CCB716798 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "${DEKSTOP_APP_NAME}";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.example.ElixirDesktopCamera;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		D59BEC4577BB527CF7F0A31D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "${DEKSTOP_APP_NAME}";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.example.ElixirDesktopCamera;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		ED6D3194FF53D57A44CFC532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5VRD54SM2W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+					"\"Carthage/Build\"",
+				);
+				INFOPLIST_FILE = ElixirDesktopCamera/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "If you want to use the camera, you have to give permission.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "If you want to use the microphone, you have to give permission.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.example.ElixirDesktopCamera;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ElixirDesktopCamera;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2EEBB53BDCDD4E1F9B2371EA /* Build configuration list for PBXProject "ElixirDesktopCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59BEC4577BB527CF7F0A31D /* Debug */,
+				5A64EB677A511C2CCB716798 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F24C6527B6F280AE6840C5E0 /* Build configuration list for PBXNativeTarget "ElixirDesktopCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED6D3194FF53D57A44CFC532 /* Debug */,
+				33E47975B3292D17647E4B31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61A56C70A095CB80628342F1 /* Project object */;
+}

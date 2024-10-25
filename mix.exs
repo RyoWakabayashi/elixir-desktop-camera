@@ -1,17 +1,25 @@
-defmodule Todo.MixProject do
+defmodule ElixirDesktopCamera.MixProject do
   use Mix.Project
 
-  @version "1.0.0"
   def project do
     [
-      app: :todo_app,
-      version: @version,
-      elixir: "~> 1.10",
+      app: :elixir_desktop_camera,
+      version: "0.1.0",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix | Mix.compilers()],
       start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      deps: deps()
+    ]
+  end
+
+  # Configuration for the OTP application.
+  #
+  # Type `mix help compile.app` for more information.
+  def application do
+    [
+      mod: {ElixirDesktopCamera, []},
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -19,66 +27,59 @@ defmodule Todo.MixProject do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
-  # Run "mix help compile.app" to learn about applications.
-  def application do
-    [
-      mod: {TodoApp, []},
-      extra_applications: [
-        :logger,
-        :ssl,
-        :crypto,
-        :sasl,
-        :tools,
-        :inets | extra_applications(Mix.target())
-      ]
-    ]
-  end
-
-  def extra_applications(:host) do
-    [:observer]
-  end
-
-  def extra_applications(_mobile) do
-    []
-  end
-
-  defp aliases do
-    [
-      "assets.deploy": [
-        "phx.digest.clean --all",
-        "esbuild default --minify",
-        "sass default --no-source-map --style=compressed",
-        "phx.digest"
-      ]
-    ]
-  end
-
-  # Run "mix help deps" to learn about dependencies.
+  # Specifies your project dependencies.
+  #
+  # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:ecto_sqlite3, "~> 0.8"},
-      {:exqlite, github: "elixir-desktop/exqlite", override: true},
-      # {:desktop, path: "../desktop"},
-      {:desktop, "~> 1.4"},
-
-      # Phoenix
-      {:phoenix, "~> 1.6"},
-      {:phoenix_live_view, "~> 0.16"},
-      {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_reload, "~> 1.3", only: [:dev]},
-      {:gettext, "~> 0.18"},
-      {:plug_cowboy, "~> 2.5"},
+      {:desktop, "~> 1.5"},
+      {:wx, "~> 1.1", hex: :bridge, targets: [:android, :ios]},
+      {:plug_crypto, github: "thehaigo/plug_crypto", override: true},
+      {:phoenix, "~> 1.7.14"},
+      {:phoenix_html, "~> 4.1"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      # TODO bump on release to {:phoenix_live_view, "~> 1.0.0"},
+      {:phoenix_live_view, "~> 1.0.0-rc.1", override: true},
+      {:floki, ">= 0.30.0", only: :test},
+      {:phoenix_live_dashboard, "~> 0.8.3"},
+      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+      {:heroicons,
+       github: "tailwindlabs/heroicons",
+       tag: "v2.1.1",
+       sparse: "optimized",
+       app: false,
+       compile: false,
+       depth: 1},
+      {:swoosh, "~> 1.5"},
+      {:finch, "~> 0.13"},
+      {:telemetry_metrics, "~> 1.0"},
+      {:telemetry_poller, "~> 1.0"},
+      {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
+      {:dns_cluster, "~> 0.1.1"},
+      {:bandit, "~> 1.5"},
+      {:nx, "~> 0.9"},
+      {:desktop_setup, github: "thehaigo/desktop_setup", only: :dev}
+    ]
+  end
 
-      # Assets
-      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
-      {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
-
-      # Credo
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-
-      {:stb_image, "~> 0.5.2"},
-      {:nx, "~> 0.3"}
+  # Aliases are shortcuts or tasks specific to the current project.
+  # For example, to install project dependencies and perform other setup tasks, run:
+  #
+  #     $ mix setup
+  #
+  # See the documentation for `Mix` for more info on aliases.
+  defp aliases do
+    [
+      setup: ["deps.get", "assets.setup", "assets.build"],
+      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.build": ["tailwind elixir_desktop_camera", "esbuild elixir_desktop_camera"],
+      "assets.deploy": [
+        "tailwind elixir_desktop_camera --minify",
+        "esbuild elixir_desktop_camera --minify",
+        "phx.digest"
+      ]
     ]
   end
 end

@@ -1,4 +1,4 @@
-defmodule TodoWeb.ConnCase do
+defmodule ElixirDesktopCameraWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule TodoWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use TodoWeb.ConnCase, async: true`, although
+  by setting `use ElixirDesktopCameraWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -19,15 +19,15 @@ defmodule TodoWeb.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint ElixirDesktopCameraWeb.Endpoint
+
+      use ElixirDesktopCameraWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import TodoWeb.ConnCase
-
-      alias TodoWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint TodoWeb.Endpoint
+      import ElixirDesktopCameraWeb.ConnCase
     end
   end
 
