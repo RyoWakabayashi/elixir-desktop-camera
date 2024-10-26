@@ -20,6 +20,8 @@ fi
 BASE=`pwd`
 export MIX_ENV=prod
 export MIX_TARGET=ios
+export EVISION_PREFER_PRECOMPILED=false
+export CODESIGN_ID=`security find-identity -v -p codesigning | sed -n 's/.*"\(.*\)".*/\1/p' | tail -n 1`
 
 mix local.hex --force --if-missing
 mix local.rebar --force --if-missing
@@ -31,14 +33,11 @@ cd ../../
 asdf local erlang 26.2.5
 asdf local elixir 1.17.2-otp-26
 
-
-if [ ! -d "deps/desktop" ]; then
-  mix deps.get
-fi
-
 #if [ ! -d "assets/node_modules" ]; then
 #  cd assets && npm i && cd ..
 #fi
+
+mix deps.get
 
 if [ -f "$BASE/ElixirDesktopCamera/app.zip" ]; then
   rm "$BASE/ElixirDesktopCamera/app.zip"
@@ -47,5 +46,7 @@ fi
 mix assets.deploy && \
   mix release --overwrite && \
   cd _build/ios_prod/rel/elixir_desktop_camera && \
-  zip -9r "$BASE/ElixirDesktopCamera/app.zip" lib/ releases/ --exclude "*.so"  
+  echo "CODESIGN_ID: ${CODESIGN_ID}" && \
+  find . -name "*.so" -exec codesign -v --force --sign "${CODESIGN_ID}" {} \; && \
+  zip -9qr "$BASE/ElixirDesktopCamera/app.zip" lib/ releases/
 

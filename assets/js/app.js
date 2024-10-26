@@ -42,38 +42,14 @@ Hooks.TakePicture = {
   mounted() {
     initStream()
 
-    const width = 400;
-    const video = document.getElementById("local-video");
-    const canvas = document.getElementById("canvas");
-    const canvasGray = document.getElementById("canvas-gray");
-
-    canvas.width = width;
-    canvasGray.width = width;
-
-    const context = canvas.getContext("2d");
-    const contextGray = canvasGray.getContext("2d");
-
-    // button クリック時
     this.el.addEventListener("click", event => {
-      // canvas にカメラ映像を貼り付け
-      const height = parseInt(width * video.videoHeight / video.videoWidth);
-      canvas.height = height;
-      canvasGray.height = height;
-      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-
-      // ピクセルデータを取得
-      const pixel = context.getImageData(0, 0, width, height)["data"].toString()
-
-      // ピクセルデータをElixirに送信
-      this.pushEvent("take", {pixel}, (payload) => {
-        let imageData = new ImageData(
-          new Uint8ClampedArray(payload.image),
-          width,
-          height
-        );
-        // ピクセルデータを canvas に貼り付け
-        contextGray.putImageData(imageData, 0, 0);
-      })
+      var canvas = document.getElementById("canvas");
+      var video = document.getElementById("local-video");
+      canvas.width = 400;
+      canvas.height = 300;
+      canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
+      const picture = canvas.toDataURL("image/jpeg", 1.0)
+      this.pushEvent("take", {"image": picture})
     })
   }
 }

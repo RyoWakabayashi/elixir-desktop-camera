@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14F1E7DC2CCB87C500E31A25 /* liberlang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EB713189272DD32B9AB012 /* liberlang.xcframework */; };
+		14F1E7DD2CCB87C500E31A25 /* liberlang.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37EB713189272DD32B9AB012 /* liberlang.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B47D077A334A3BD9373DA27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA294B0AFEC8F4A9DFFD0D3B /* Preview Assets.xcassets */; };
 		52631BD61E6E0E70A3838A44 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E86F95B2DA0A2D166788D3 /* WebView.swift */; };
-		55DB59204ACE6E88B1FA77CF /* liberlang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EB713189272DD32B9AB012 /* liberlang.xcframework */; };
 		5F80E749903D9492E0EEA8DF /* ElixirDesktopCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3872637C5941B89EBB751CD /* ElixirDesktopCamera.swift */; };
 		6F218127FCB4F3019DE5AA2C /* native-lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5249A085D0DDF5276ED920B8 /* native-lib.cpp */; };
 		779F187D3B3FAA4CCEB25BDA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13AEE644905B454369568 /* Bridge.swift */; };
@@ -28,6 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				14F1E7DD2CCB87C500E31A25 /* liberlang.xcframework in Embed Frameworks */,
 				AC889DCEACBA20856F5251A0 /* ZIPFoundation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -37,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		143F3C722CCB4537006F0C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		14F1E7D92CCB873B00E31A25 /* evision.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = evision.so; path = "../../_build/ios_prod/rel/elixir_desktop_camera/lib/evision-0.2.9/priv/evision.so"; sourceTree = "<group>"; };
 		335E6FA0E0CD18DFB364FB34 /* ElixirDesktopCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElixirDesktopCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EB713189272DD32B9AB012 /* liberlang.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = liberlang.xcframework; sourceTree = "<group>"; };
 		4DB14FF67B60AAE559627507 /* example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "example-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -58,8 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F1E7DC2CCB87C500E31A25 /* liberlang.xcframework in Frameworks */,
 				C9A62552C69E8ACAC5642733 /* ZIPFoundation.xcframework in Frameworks */,
-				55DB59204ACE6E88B1FA77CF /* liberlang.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		0D6451EB991DBD4AD388AB4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14F1E7D92CCB873B00E31A25 /* evision.so */,
 				37EB713189272DD32B9AB012 /* liberlang.xcframework */,
 				7BAB8A1AD1CD209B805B9C9E /* ZIPFoundation.xcframework */,
 			);
@@ -224,7 +228,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5VRD54SM2W;
+				DEVELOPMENT_TEAM = 2VWND4TNQX;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\".\"",
@@ -242,7 +247,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ElixirDesktopCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = rwakabay.ElixirDesktopCamera;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -397,7 +402,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5VRD54SM2W;
+				DEVELOPMENT_TEAM = 2VWND4TNQX;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\".\"",
@@ -415,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ElixirDesktopCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = rwakabay.ElixirDesktopCamera;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

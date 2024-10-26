@@ -11,35 +11,16 @@ defmodule ElixirDesktopCameraWeb.CameraLive do
   # 写真撮影時の処理
   # 画像をグレースケールに変換する
   @impl true
-  def handle_event("take", %{"pixel" => pixel}, socket) do
-    width = 400
+  def handle_event("take", %{"image" => base64}, socket) do
+    IO.inspect(base64)
+    "data:image/jpeg;base64," <> raw = base64
+    gray =
+      raw
+      |> Base.decode64!()
+      |> Evision.imdecode(Evision.Constant.cv_IMREAD_GRAYSCALE)
 
-    # ピクセルデータをテンソルに変換
-    pixel_tensor =
-      "<<#{pixel}>>"
-      |> Code.eval_string()
-      |> elem(0)
-      |> Nx.from_binary({:u, 8})
-
-    {length} = Nx.shape(pixel_tensor)
-    height = div(length, width * 4)
-
-    pixel_tensor = Nx.reshape(pixel_tensor, {width, height, 4})
-    alpha_tensor = Nx.slice_along_axis(pixel_tensor, 3, 1, axis: -1)
-
-    # グレースケールに変換
-    gray_tensor =
-      pixel_tensor
-      |> Nx.slice_along_axis(0, 3, axis: -1)
-      |> Nx.mean(axes: [-1], keep_axes: true)
-      |> Nx.as_type({:u, 8})
-
-    # ピクセルデータに変換
-    gray_pixel =
-      [gray_tensor, gray_tensor, gray_tensor, alpha_tensor]
-      |> Nx.concatenate(axis: -1)
-      |> Nx.to_flat_list()
-
-    {:reply, %{image: gray_pixel}, socket}
+    gray =
+      Evision.imencode(".jpg", gray)
+    {:noreply, assign(socket, gray_image: gray)}
   end
 end

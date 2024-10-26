@@ -60,6 +60,7 @@ defmodule ElixirDesktopCamera.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:nx, "~> 0.9"},
+      {:evision, "~> 0.2"},
       {:desktop_setup, github: "thehaigo/desktop_setup", only: :dev}
     ]
   end
